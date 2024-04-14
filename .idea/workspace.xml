@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6acdfcfd-da4d-4f81-a245-6d3509a36d80" name="Changes" comment="oleg commit" />
+    <list default="true" id="6acdfcfd-da4d-4f81-a245-6d3509a36d80" name="Changes" comment="oleg commit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/CtSoUaBotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/CtSoUaBotApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,18 +18,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "CLOSED",
-      "assignee": "OlegMalanchuk"
+      &quot;state&quot;: &quot;CLOSED&quot;,
+      &quot;assignee&quot;: &quot;OlegMalanchuk&quot;
     }
   ],
-  "lastFilter": {
-    "state": "CLOSED",
-    "assignee": "OlegMalanchuk"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;CLOSED&quot;,
+    &quot;assignee&quot;: &quot;OlegMalanchuk&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -33,10 +38,11 @@
       </UrlAndAccount>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2f5RcmffttS2h0WqzgeR2lAhDML" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,7 +56,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.CtSoUaBotApplication.executor": "Run",
-    "git-widget-placeholder": "BranchOleg",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/TG_Bot_Oleg_Martin",
     "node.js.detected.package.eslint": "true",
@@ -73,7 +79,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -86,6 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713089034072</updated>
       <workItem from="1713089034908" duration="3037000" />
+      <workItem from="1713096416092" duration="363000" />
     </task>
     <task id="LOCAL-00001" summary="oleg commit">
       <option name="closed" value="true" />

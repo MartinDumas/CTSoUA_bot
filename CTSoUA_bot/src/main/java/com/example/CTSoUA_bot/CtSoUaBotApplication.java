@@ -8,55 +8,7 @@ public class CtSoUaBotApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CtSoUaBotApplication.class, args);
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
-		System.out.printf("oleg");
+
 	}
 
 }
