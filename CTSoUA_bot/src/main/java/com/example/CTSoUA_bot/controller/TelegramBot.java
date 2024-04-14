@@ -6,10 +6,13 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
-    @Value("${botName}")
+    @Value("${bot.name}")
     private String botName;
-    @Value("${botToken}")
+    @Value("${bot.token}")
     private String botToken;
+
+
+
     @Override
     public String getBotUsername() {
         return botName;
@@ -23,7 +26,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         var originalMessage = update.getMessage();
-        System.out.print(originalMessage.getText());
+        System.out.println(originalMessage.getText());
 
     }
 }
