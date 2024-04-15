@@ -21,6 +21,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         return "7059758535:AAHfTWI3LSZrqEAhJRl5iSVvmXCMP9Y67ds";
     }
 
+
     @Override
     public void onUpdateReceived(Update update) {
         String chatId = update.getMessage().getChatId().toString();

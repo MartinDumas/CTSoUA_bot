@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6acdfcfd-da4d-4f81-a245-6d3509a36d80" name="Changes" comment="oleg commit">
-      <change afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CTSoUA_bot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/CtSoUaBotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/CtSoUaBotApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" afterDir="false" />
     </list>
@@ -17,20 +17,25 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="BranchOleg" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "CLOSED",
-      "assignee": "OlegMalanchuk"
+      &quot;state&quot;: &quot;CLOSED&quot;,
+      &quot;assignee&quot;: &quot;OlegMalanchuk&quot;
     }
   ],
-  "lastFilter": {
-    "state": "CLOSED",
-    "assignee": "OlegMalanchuk"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;CLOSED&quot;,
+    &quot;assignee&quot;: &quot;OlegMalanchuk&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -39,9 +44,9 @@
       </UrlAndAccount>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2f5RcmffttS2h0WqzgeR2lAhDML" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -92,6 +97,8 @@
       <option name="presentableId" value="Default" />
       <updated>1713089034072</updated>
       <workItem from="1713089034908" duration="7757000" />
+      <workItem from="1713103126600" duration="1158000" />
+      <workItem from="1713187121621" duration="629000" />
     </task>
     <task id="LOCAL-00001" summary="oleg commit">
       <option name="closed" value="true" />
@@ -135,21 +142,5 @@
     <MESSAGE value="oleg commit2" />
     <MESSAGE value="oleg commit" />
     <option name="LAST_COMMIT_MESSAGE" value="oleg commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
