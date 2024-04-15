@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6acdfcfd-da4d-4f81-a245-6d3509a36d80" name="Changes" comment="oleg commit">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CTSoUA_bot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" afterDir="false" />
@@ -47,26 +46,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.CtSoUaBotApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/TG_Bot&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.CtSoUaBotApplication.executor": "Run",
+    "git-widget-placeholder": "BrantchOleg",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/TG_Bot",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="CtSoUaBotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="CTSoUA_bot" />
@@ -94,6 +93,7 @@
       <workItem from="1713089034908" duration="7757000" />
       <workItem from="1713103126600" duration="1158000" />
       <workItem from="1713187121621" duration="629000" />
+      <workItem from="1713193462315" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="oleg commit">
       <option name="closed" value="true" />
@@ -143,12 +143,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java</url>
-          <line>7</line>
+          <line>10</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java</url>
-          <line>32</line>
+          <line>57</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
