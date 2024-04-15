@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6acdfcfd-da4d-4f81-a245-6d3509a36d80" name="Changes" comment="oleg commit">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/CtSoUaBotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/CtSoUaBotApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/CtSoUaBotApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/java/com/example/CTSoUA_bot/controller/TelegramBot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/main/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTSoUA_bot/src/test/java/com/example/CTSoUA_bot/CtSoUaBotApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +27,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="BranchOleg" />
@@ -63,7 +79,7 @@
     "Spring Boot.CtSoUaBotApplication.executor": "Run",
     "git-widget-placeholder": "BranchOleg",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/TG_Bot",
+    "last_opened_file_path": "E:/TG_Bot_Oleg_Martin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
