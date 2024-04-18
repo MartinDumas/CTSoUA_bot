@@ -10,7 +10,9 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
@@ -34,11 +36,16 @@ public class TelegramBot extends TelegramLongPollingBot {
             isFirstMessage = false;
             return;
         }
-
-
         if (messageText.equals("Увійти")) {
             sendLoginInstructions(chatId);
         }
+        else if (messageText.equals("Зареєструватися")) {
+            sendRegistrationInstructions(chatId);
+        }
+        else if (!messageText.equals("error")) {
+            sendError(chatId);
+        }
+
     }
 
     private void sendWelcomeMessage(long chatId) {
@@ -61,7 +68,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     private void sendLoginInstructions(long chatId) {
         SendMessage loginMessage = new SendMessage();
         loginMessage.setChatId(String.valueOf(chatId));
-        loginMessage.setText("Будь ласка, введіть свою електронну адресу");
+        loginMessage.setText("Будь ласка, введіть свою електронну адресу");// я б казав вводити по номеру телефону бо він є точно у всіх
+//        loginMessage.setText("Будь ласка, введіть свой номер телефону");
 
         try {
             execute(loginMessage); // Відправлення повідомлення про вхід
@@ -70,16 +78,47 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
+    private void sendRegistrationInstructions(long chatId){
+        SendMessage registrationMessage = new SendMessage();
+        registrationMessage.setChatId(String.valueOf(chatId));
+        registrationMessage.setText("Якщо ви вперше користуєтеся ботом введіть будь ласка пошту та пароль");
+        try {
+            execute(registrationMessage); // Відправлення повідомлення про вхід
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+    private void sendError(long chatId){
+        SendMessage errorMessage = new SendMessage();
+        errorMessage.setChatId(String.valueOf(chatId));
+        errorMessage.setText("Неправильно введена інформація");
+        try {
+            execute(errorMessage); // Відправлення повідомлення про вхід
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
     private ReplyKeyboardMarkup getMenuKeyboard() {
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+
         replyKeyboardMarkup.setSelective(true);
+
         replyKeyboardMarkup.setResizeKeyboard(true);
+
         replyKeyboardMarkup.setOneTimeKeyboard(false);
+
         List<KeyboardRow> keyboardRows = new ArrayList<>();
+
         KeyboardRow keyboardRow = new KeyboardRow();
+
         keyboardRow.add("Увійти");
+        keyboardRow.add("Зареєструватися");
+
         keyboardRows.add(keyboardRow);
+
         replyKeyboardMarkup.setKeyboard(keyboardRows);
+
         return replyKeyboardMarkup;
     }
 
