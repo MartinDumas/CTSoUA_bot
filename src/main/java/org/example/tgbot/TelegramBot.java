@@ -73,13 +73,19 @@ public class TelegramBot extends TelegramLongPollingBot {
         if ("Додати вантаж".equals(text)) {
             addCargo(chatId);
         } else if ("Видалити вантаж".equals(text)) {
-            // Logic for deleting cargo
+            deleteCargo(chatId);
         } else if (!userRoles.get(chatId)) {
             if ("Вибрати перевізника".equals(text)) {
-                // Logic for selecting transporter
+                menuTransporter(chatId,text);
             } else if ("Завершити перевезення".equals(text)) {
                 // Logic for completing transportation
             }
+//        } else if (userRoles.get(chatId)) {
+//            if ("Вибрати замовлення".equals(text)){
+//                //
+//            } else if ("Завершити замовлення".equals(text)) {
+//
+//            }
         }
     }
 
@@ -110,6 +116,9 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     private void sendPromptMessage(Long chatId, String prompt) {
         SendMessage message = new SendMessage();
+
+
+
         message.setChatId(chatId);
         message.setText(prompt);
 
@@ -166,6 +175,11 @@ public class TelegramBot extends TelegramLongPollingBot {
             row2.add("Вибрати перевізника");
             row2.add("Завершити перевезення");
             keyboard.add(row2);
+        } else if (userRoles.get(chatId)){
+            KeyboardRow row3 = new KeyboardRow();
+            row3.add("Вибрати замовлення");
+            row3.add("Завершити замовлення");
+            keyboard.add(row3);
         }
 
         keyboardMarkup.setKeyboard(keyboard);
@@ -203,5 +217,30 @@ public class TelegramBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+    private  void deleteCargo(long chatId){
+        SendMessage deleteMessage = new SendMessage();
+        deleteMessage.setChatId(chatId);
+        deleteMessage.setText("введіть назву вантажу для видалення:");
+        try {
+            execute(deleteMessage);
+        }catch (TelegramApiException e ){
+            e.printStackTrace();
+        }
+    }
+
+    private  void  menuTransporter(long chatId,String text){
+        SendMessage menuTransporter = new SendMessage();
+        menuTransporter.setChatId(chatId);
+        menuTransporter.setText("список активних водіїв\n/1_oleg_m \n/2_ivan_r\n/3_nazar_b\n/4_ignat\n/5_lol \n/6_rick\n");
+
+
+        try {
+            execute(menuTransporter);
+
+        }catch (TelegramApiException e){
+            e.printStackTrace();
+        }
+
     }
 }
