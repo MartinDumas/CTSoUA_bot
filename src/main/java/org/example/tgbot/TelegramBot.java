@@ -10,14 +10,17 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Map;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
 
-    private boolean isFirstMessage = true;
+    private Map<Long, String> userEmails = new HashMap<>();
+    private Map<Long, String> userPasswords = new HashMap<>();
+    private Map<Long, Boolean> userRoles = new HashMap<>();
+    private Map<Long, Boolean> userLoggedIn = new HashMap<>(); // New map to track login status
 
     @Override
     public String getBotUsername() {
@@ -26,104 +29,179 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        // Отримання тексту повідомлення від користувача
-        String messageText = update.getMessage().getText();
-        long chatId = update.getMessage().getChatId();
-
-        // Виведення вітального повідомлення при старті бота
-        if (isFirstMessage) {
-            sendWelcomeMessage(chatId);
-            isFirstMessage = false;
-            return;
+        Message message = update.getMessage();
+        if (message != null && message.hasText()) {
+            Long chatId = message.getChatId();
+            if (!userLoggedIn.containsKey(chatId) || !userLoggedIn.get(chatId)) {
+                // Check if the user is not logged in or is not marked as logged in
+                handleUnauthorizedUser(chatId, message.getText());
+            } else {
+                handleAuthorizedUser(chatId, message.getText());
+            }
         }
-        if (messageText.equals("Увійти")) {
-            sendLoginInstructions(chatId);
-        }
-        else if (messageText.equals("Зареєструватися")) {
-            sendRegistrationInstructions(chatId);
-        }
-        else if (!messageText.equals("error")) {
-            sendError(chatId);
-        }
-
-    }
-
-    private void sendWelcomeMessage(long chatId) {
-
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(String.valueOf(chatId));
-        sendMessage.setText("Вас вітає система перевезення вантажів української армії." +
-                "\n Будь ласка, увійдіть у свій профіль!");
-        sendMessage.enableMarkdown(true);
-        ReplyKeyboardMarkup keyboardMarkup = getMenuKeyboard();
-        sendMessage.setReplyMarkup(keyboardMarkup);
-
-        try {
-            execute(sendMessage); // Відправлення вітального повідомлення
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void sendLoginInstructions(long chatId) {
-        SendMessage loginMessage = new SendMessage();
-        loginMessage.setChatId(String.valueOf(chatId));
-        loginMessage.setText("Будь ласка, введіть свою електронну адресу");// я б казав вводити по номеру телефону бо він є точно у всіх
-//        loginMessage.setText("Будь ласка, введіть свой номер телефону");
-
-        try {
-            execute(loginMessage); // Відправлення повідомлення про вхід
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void sendRegistrationInstructions(long chatId){
-        SendMessage registrationMessage = new SendMessage();
-        registrationMessage.setChatId(String.valueOf(chatId));
-        registrationMessage.setText("Якщо ви вперше користуєтеся ботом введіть будь ласка пошту та пароль");
-        try {
-            execute(registrationMessage); // Відправлення повідомлення про вхід
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
-    private void sendError(long chatId){
-        SendMessage errorMessage = new SendMessage();
-        errorMessage.setChatId(String.valueOf(chatId));
-        errorMessage.setText("Неправильно введена інформація");
-        try {
-            execute(errorMessage); // Відправлення повідомлення про вхід
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private ReplyKeyboardMarkup getMenuKeyboard() {
-        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
-
-        replyKeyboardMarkup.setSelective(true);
-
-        replyKeyboardMarkup.setResizeKeyboard(true);
-
-        replyKeyboardMarkup.setOneTimeKeyboard(false);
-
-        List<KeyboardRow> keyboardRows = new ArrayList<>();
-
-        KeyboardRow keyboardRow = new KeyboardRow();
-
-        keyboardRow.add("Увійти");
-        keyboardRow.add("Зареєструватися");
-
-        keyboardRows.add(keyboardRow);
-
-        replyKeyboardMarkup.setKeyboard(keyboardRows);
-
-        return replyKeyboardMarkup;
     }
 
     @Override
     public String getBotToken() {
         return "6959322213:AAGjboBmXBH3PixnTip8bT6ISYRfIiI_c7E";
+    }
+
+    private void handleUnauthorizedUser(Long chatId, String text) {
+        if ("/start".equals(text)) {
+            sendStartMessage(chatId);
+        } else if ("Увійти".equals(text)) {
+            if (!userEmails.containsKey(chatId)) {
+                sendPromptMessage(chatId, "Будь ласка, введіть електронну пошту:");
+            } else if (!userPasswords.containsKey(chatId)) {
+                sendPromptMessage(chatId, "Будь ласка, введіть пароль:");
+            }
+        } else if (!userEmails.containsKey(chatId)) {
+            userEmails.put(chatId, text);
+            sendPromptMessage(chatId, "Будь ласка, введіть пароль:");
+        } else if (!userPasswords.containsKey(chatId)) {
+            userPasswords.put(chatId, text);
+            setAuthorized(chatId);
+            setUserRole(chatId, false);
+            sendConfirmationMessage(chatId, "Ви успішно авторизувалися!");
+            sendMainMenu(chatId);
+            // Mark user as logged in
+            userLoggedIn.put(chatId, true);
+        }
+    }
+
+    private void handleAuthorizedUser(Long chatId, String text) {
+        if ("Додати вантаж".equals(text)) {
+            addCargo(chatId);
+        } else if ("Видалити вантаж".equals(text)) {
+            // Logic for deleting cargo
+        } else if (!userRoles.get(chatId)) {
+            if ("Вибрати перевізника".equals(text)) {
+                // Logic for selecting transporter
+            } else if ("Завершити перевезення".equals(text)) {
+                // Logic for completing transportation
+            }
+        }
+    }
+
+    private void sendStartMessage(Long chatId) {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText("Вітаю! Для початку увійдіть, натиснувши кнопку 'Увійти'.");
+
+        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setSelective(true);
+        keyboardMarkup.setResizeKeyboard(true);
+        keyboardMarkup.setOneTimeKeyboard(true);
+
+        List<KeyboardRow> keyboard = new ArrayList<>();
+        KeyboardRow row = new KeyboardRow();
+        row.add("Увійти");
+        keyboard.add(row);
+
+        keyboardMarkup.setKeyboard(keyboard);
+        message.setReplyMarkup(keyboardMarkup);
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sendPromptMessage(Long chatId, String prompt) {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText(prompt);
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sendConfirmationMessage(Long chatId, String confirmation) {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText(confirmation);
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean isAuthorized(Long chatId) {
+        return userEmails.containsKey(chatId) && userPasswords.containsKey(chatId);
+    }
+
+    private void setAuthorized(Long chatId) {
+        userEmails.remove(chatId);
+        userPasswords.remove(chatId);
+    }
+
+    private void setUserRole(Long chatId, boolean isTransporter) {
+        userRoles.put(chatId, isTransporter);
+    }
+
+    private void sendMainMenu(Long chatId) {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText("Головне меню:");
+
+        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setSelective(true);
+        keyboardMarkup.setResizeKeyboard(true);
+        keyboardMarkup.setOneTimeKeyboard(false);
+
+        List<KeyboardRow> keyboard = new ArrayList<>();
+        KeyboardRow row1 = new KeyboardRow();
+        row1.add("Додати вантаж");
+        row1.add("Видалити вантаж");
+        keyboard.add(row1);
+
+        if (!userRoles.get(chatId)) {
+            KeyboardRow row2 = new KeyboardRow();
+            row2.add("Вибрати перевізника");
+            row2.add("Завершити перевезення");
+            keyboard.add(row2);
+        }
+
+        keyboardMarkup.setKeyboard(keyboard);
+        message.setReplyMarkup(keyboardMarkup);
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addCargo(Long chatId) {
+        SendMessage nameMessage = new SendMessage();
+        nameMessage.setChatId(chatId);
+        nameMessage.setText("Введіть назву вантажу:");
+
+        SendMessage weightMessage = new SendMessage();
+        weightMessage.setChatId(chatId);
+        weightMessage.setText("Введіть вагу вантажу (у кілограмах):");
+
+        SendMessage originMessage = new SendMessage();
+        originMessage.setChatId(chatId);
+        originMessage.setText("Введіть адресу місця знаходження вантажу:");
+
+        SendMessage destinationMessage = new SendMessage();
+        destinationMessage.setChatId(chatId);
+        destinationMessage.setText("Введіть адресу доставки вантажу:");
+
+        try {
+            execute(nameMessage);
+            execute(weightMessage);
+            execute(originMessage);
+            execute(destinationMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
     }
 }
